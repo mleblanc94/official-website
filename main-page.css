@@ -1,3 +1,15 @@
 h1 {
     text-align: center;
+    color: white;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #cccccc;
+    background-image: url('MeAsPred.png');
+    background-size: cover;
 }

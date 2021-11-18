@@ -1,3 +1,4 @@
+// Establish Variables
 let resetButton = document.getElementById('reset');
 let firstName = document.getElementById('firstName-input');
 let lastName = document.getElementById('lastName-input');
