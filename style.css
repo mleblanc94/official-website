@@ -1,0 +1,52 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+/* Body of page */
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #cccccc;
+    background-image: url('https://i.ytimg.com/vi/KXfibK8tCtk/maxresdefault.jpg');
+    background-size: cover;
+}
+
+h1 {
+    margin-top: 50px;
+    font-family: 'Anton', sans-serif;
+}
+
+h1, h2, h4 {
+    text-align: center;
+    color: white;
+}
+
+.login-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 3px solid black;
+    border-radius: 30px;
+    width: 33%;
+    margin-top: 12vh;
+    padding: 30px 0px;
+    background-color: #1f2e2e;
+    color: white;
+    box-shadow: 10px 5px 5px black;
+}
+
+a {
+    color: #ff1a1a;
+}
+
+.return-login {
+    margin-top: 10px;
+}
+
+.wrong-creds {
+    color: red;
+    display: none;
+}
