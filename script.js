@@ -18,7 +18,8 @@ function authenticator() {
 }
 
 function throwError() {
-    console.log("Error!!!")
+    let errorMessage = document.querySelector('.wrong-creds');
+    errorMessage.style.display = 'inline';
 }
 
 // Reset what the user has entered
