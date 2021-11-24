@@ -13,3 +13,14 @@ function createAccount() {
     let username = usernameInput.value;
     let password = passwordInput.value;
 }
+
+// Reset what the user has entered
+let resetInput = () => {
+    usernameInput.value = "";
+    passwordInput.value = "";
+    firstNameInput.value = "";
+    lastNameInput.value = "";
+}
+
+resetButton.addEventListener("click", resetInput);
+// submit.addEventListener("click", authenticator);
