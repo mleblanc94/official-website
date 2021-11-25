@@ -1,0 +1,24 @@
+{
+  "name": "official-website",
+  "version": "1.0.0",
+  "description": "My official website",
+  "main": "create-account.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mleblanc94/official-website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mleblanc94/official-website/issues"
+  },
+  "homepage": "https://github.com/mleblanc94/official-website#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
