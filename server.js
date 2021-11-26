@@ -1,8 +1,5 @@
-const http = require('http');
+const express = require('express');
 
-const server = http.createServer((request, response) => {
-    response.setHeader('content-type', 'text/html');
-    response.end('<h1>There wasnt supposed to be there you stupid ****</h1>')
-})
+const app = express();
 
-server.listen(3000);
+app.listen(3000);
