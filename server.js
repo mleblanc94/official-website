@@ -13,14 +13,14 @@ const database = {
         {
             id: "123",
             name: "John",
-            email: "john@gmail.com",
+            username: "john69",
             password: "cookies",
             joined: new Date()
         },
         {
             id: "124",
             name: "Sally",
-            email: "sally@gmail.com",
+            username: "sally@gmail.com",
             password: "bananas",
             joined: new Date()
         }
@@ -32,9 +32,9 @@ app.get('/', (req, res)=> {
 })
 
 app.post('/signin', (req, res) => {
-    if (req.body.email === database.users[0].email &&
+    if (req.body.username === database.users[0].username &&
         req.body.password === database.users[0].password) {
-        res.json('congrats bud you successfully connected')
+        res.json('It worked, you are connected, way to be.')
     } else {
         res.status(400).json('error logging in');
     }

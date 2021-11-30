@@ -9,17 +9,17 @@ let passwordInput = document.getElementById('password-input');
 let submit = document.getElementById("submit");
 
 // send the username and password to the database to verify authenticity of account
-function authenticator() {
-    let username = usernameInput.value;
-    let password = passwordInput.value;
-    for (let i = 0; i < userDatabase.length; i++)
-    if (username === userDatabase[i].username && password === userDatabase[i].password) {
-        i++;
-        window.open("main-page.html")
-    } else (
-        throwError()
-    )
-}
+// function authenticator() {
+//     let username = usernameInput.value;
+//     let password = passwordInput.value;
+//     for (let i = 0; i < userDatabase.length; i++)
+//     if (username === userDatabase[i].username && password === userDatabase[i].password) {
+//         i++;
+//         window.open("main-page.html")
+//     } else (
+//         throwError()
+//     )
+// }
 
 function throwError() {
     let errorMessage = document.querySelector('.wrong-creds');
@@ -32,10 +32,24 @@ let resetInput = () => {
     passwordInput.innerHTML = "";
 }
 
+// Calling server to check sign in information
+let checkSignIn = () => {
+    let username = usernameInput.value;
+    let password = passwordInput.value;
+    fetch('http://localhost:3000/signin', {
+    method: 'post',
+    headers: {'Content-type': 'application/json'},
+    body: JSON.stringify({
+        username: username,
+        password: password
+    }) 
+})
+}
+
 
 
 resetButton.addEventListener("click", resetInput);
-submit.addEventListener("click", authenticator);
+submit.addEventListener("click", checkSignIn);
 
 // Temporary Database
 let userDatabase = [
