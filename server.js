@@ -34,7 +34,7 @@ app.get('/', (req, res)=> {
 app.post('/signin', (req, res) => {
     if (req.body.username === database.users[0].username &&
         req.body.password === database.users[0].password) {
-        res.json('It worked, you are connected, way to be.')
+        res.json('success')
     } else {
         res.status(400).json('error logging in');
     }

@@ -32,7 +32,7 @@ let resetInput = () => {
     passwordInput.innerHTML = "";
 }
 
-// Calling server to check sign in information
+// Calling server to check signin information
 let checkSignIn = () => {
     let username = usernameInput.value;
     let password = passwordInput.value;
@@ -43,6 +43,15 @@ let checkSignIn = () => {
         username: username,
         password: password
     }) 
+})
+.then(response => response.json())
+.then (data => {
+    if (data === 'success') {
+        window.open("main-page.html")
+    }
+    else {
+        throwError()
+    }
 })
 }
 
