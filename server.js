@@ -44,7 +44,8 @@ app.post('/register', (req, res) => {
     const { firstName, lastName, username, password } = req.body;
     bcrypt.hash(password, null, null, function(err, hash) {
         console.log(hash);
-    })
+        console.log(firstName, lastName, username, password);
+    });
     database.users.push({
         id: "125",
         firstName: firstName,
@@ -53,7 +54,7 @@ app.post('/register', (req, res) => {
         password: password,
         joined: new Date()
     })
-    res.json(database.users[database.users.length - 1])
+    res.json('success');
 })
 
 app.get('/profile/:id', (req, res) => {
