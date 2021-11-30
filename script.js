@@ -29,7 +29,7 @@ function throwError() {
 // Reset what the user has entered
 let resetInput = () => {
     usernameInput.value = "";
-    passwordInput.innerHTML = "";
+    passwordInput.value = "";
 }
 
 // Calling server to check signin information

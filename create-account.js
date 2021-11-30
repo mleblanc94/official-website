@@ -12,6 +12,16 @@ function createAccount() {
     let lastName = lastNameInput.value;
     let username = usernameInput.value;
     let password = passwordInput.value;
+    fetch('http://localhost:3000/register', {
+    method: 'post',
+    headers: {'Content-type': 'application/json'},
+    body: JSON.stringify({
+        firstName: firstName,
+        lastName: lastName,
+        username: username,
+        password: password
+    }) 
+})
 }
 
 // Reset what the user has entered
@@ -23,4 +33,4 @@ let resetInput = () => {
 }
 
 resetButton.addEventListener("click", resetInput);
-// submit.addEventListener("click", authenticator);
+submit.addEventListener("click", createAccount);
