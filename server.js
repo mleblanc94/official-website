@@ -24,47 +24,36 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-// const database = {
-//     users: [
-//         {
-//             id: "123",
-//             name: "John",
-//             username: "john69",
-//             password: "cookies",
-//             joined: new Date()
-//         },
-//         {
-//             id: "124",
-//             name: "Sally",
-//             username: "sally@gmail.com",
-//             password: "bananas",
-//             joined: new Date()
-//         }
-//     ]
-// }
-
 app.get('/', (req, res)=> {
     res.send(database.users);
 })
 
 app.post('/signin', (req, res) => {
-    if (req.body.username === database.users[0].username &&
-        req.body.password === database.users[0].password) {
-        res.json('success')
-    } else {
-        res.status(400).json('error logging in');
-    }
+    database.select('username','password').from('users')
+    .where('username', '=', req.body.email)
+    .then(data => {
+        const isValid = bcrypt.compareSync(req.body.password, data[0].hash);
+        if (isValid) {
+            database.select('*').from('users')
+            .where('username', '=' req.body.username)
+            .then(user => {
+                res.json(user[0])
+            })
+            .catch(err => res.status().json('Unable to get the user'))
+        }
+    })
 })
 
 app.post('/register', (req, res) => {
     const { firstName, lastName, username, password } = req.body;
+    const hash = bcrypt.hashSync(password);
     database('users')
     .returning('*')
     .insert({
         firstname: firstName,
         lastname: lastName,
         username: username,
-        password: password,
+        password: hash,
         joined: new Date()
     })
     .then(user => {
