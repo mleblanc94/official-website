@@ -15,9 +15,9 @@ const database = knex({
     }
   });
 
-database.select('*').from('users').then(data => {
-    console.log(data);
-  });
+// database.select('*').from('users').then(data => {
+//     console.log(data);
+//   });
 
 
 const app = express();
@@ -34,21 +34,24 @@ app.post('/signin', (req, res) => {
     .then(data => {
         const isValid = bcrypt.compareSync(req.body.password, data[0].hash);
         if (isValid) {
-            database.select('*').from('users')
-            .where('username', '=' req.body.username)
+            return database.select('*').from('users')
+            .where('username', '=', req.body.username)
             .then(user => {
                 res.json(user[0])
             })
             .catch(err => res.status().json('Unable to get the user'))
+        } else {
+        res.status(400).json()
         }
     })
+    .catch(err => res.status(400).json('wrong credentials'))
 })
 
 app.post('/register', (req, res) => {
     const { firstName, lastName, username, password } = req.body;
     const hash = bcrypt.hashSync(password);
     database('users')
-    .returning('*')
+    // .returning('*')
     .insert({
         firstname: firstName,
         lastname: lastName,
