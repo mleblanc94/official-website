@@ -32,7 +32,7 @@ app.post('/signin', (req, res) => {
     database.select('username','password').from('users')
     .where('username', '=', req.body.email)
     .then(data => {
-        const isValid = bcrypt.compareSync(req.body.password, data[0].hash);
+        const isValid = bcrypt.compareSync(req.body.password, data[0].password);
         if (isValid) {
             return database.select('*').from('users')
             .where('username', '=', req.body.username)
