@@ -1,7 +1,3 @@
-// Connect to server
-fetch('http://localhost:3000/')
-.then(response => response.json())
-.then(console.log)
 // Establish variables
 let resetButton = document.getElementById('reset');
 let usernameInput = document.getElementById('username-input');
