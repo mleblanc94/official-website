@@ -25,7 +25,7 @@ function createAccount() {
 })
 .then(response=> response.json())
 .then(user => {
-    if (user === 'success') {
+    if (user.id) {
         window.open("main-page.html");
     }
 })

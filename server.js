@@ -51,7 +51,7 @@ app.post('/register', (req, res) => {
     const { firstName, lastName, username, password } = req.body;
     const hash = bcrypt.hashSync(password);
     database('users')
-    // .returning('*')
+    .returning('*')
     .insert({
         firstname: firstName,
         lastname: lastName,
@@ -60,7 +60,7 @@ app.post('/register', (req, res) => {
         joined: new Date()
     })
     .then(user => {
-        res.json(user);
+        res.json(user[0]);
     })
     .catch(err => res.status(400).json("unable to register"))
 })
