@@ -33,8 +33,8 @@ let checkSignIn = () => {
     }) 
 })
 .then(response => response.json())
-.then (data => {
-    if (data === 'success') {
+.then (user => {
+    if (user.id) {
         window.open("main-page.html")
     }
     else {
