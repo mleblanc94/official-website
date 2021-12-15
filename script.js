@@ -20,7 +20,7 @@ let resetInput = () => {
 let checkSignIn = () => {
     let username = usernameInput.value;
     let password = passwordInput.value;
-    fetch('http://localhost:3000/signin', {
+    fetch('https://shrouded-chamber-54170.herokuapp.com/signin', {
     method: 'post',
     headers: {'Content-type': 'application/json'},
     body: JSON.stringify({

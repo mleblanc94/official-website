@@ -13,7 +13,7 @@ function createAccount() {
     let username = usernameInput.value;
     let password = passwordInput.value;
     console.log(firstName, lastName, username, password);
-    fetch('http://localhost:3000/register', {
+    fetch('https://shrouded-chamber-54170.herokuapp.com/register', {
     method: 'post',
     headers: {'Content-type': 'application/json'},
     body: JSON.stringify({
