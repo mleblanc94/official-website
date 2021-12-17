@@ -68,7 +68,7 @@ app.get('/profile/:id', (req, res) => {
     .catch(err => res.status(400).json('error getting user'))
 })
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 
 app.listen(PORT, () => console.log(`app is running on port ${PORT}`));
 
